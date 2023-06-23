@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container"> 
+    {%for msg in messages %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Hey!</strong> {{ msg }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+         
+    {% endfor%}
+        <form action="/contact/" method="post">
+            {% csrf_token %}
+
+            <div class="row g-3">
+                <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+                    <label for="name">Your Name</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Your Email">
+                    <label for="email">Your Email</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone no">
+                        <label for="phone">Phone no</label>
+                </div>
+            </div>
+        <div class="col-md-6">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="company" name="company" placeholder="Company/Organization">
+                <label for="company">Company/Organization</label>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="form-floating">
+                <select class="form-select" id="service" name="service" required>
+                    <option value="">Select a service</option>
+                    <option value="ON Page SEO">ON Page SEO</option>
+                    <option value="Franchise SEO">Franchise SEO</option>
+                    <option value="Technical SEO">Technical SEO</option>
+                    <option value="Off Page SEO">Off Page SEO</option>
+                    <option value="Content Writing">Content Writing</option>
+                    <option value="Meta Data Analysis">Meta Data Analysis</option>
+                </select>
+                <label for="service">What services can we provide you?</label>
+            </div>
+        </div>
+        <div class="col-12">
+            <div id="amount-range"></div>
+    
+        </div>                            
+        <div class="col-12">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject">
+                <label for="subject">Subject</label>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a message here" id="message" name="message" style="height: 150px"></textarea>
+                <label for="message">Message</label>
+             </div>
+        </div>
+        <div class="col-12">
+            
+            <button class="btn btn-secondary w-100 py-3" type="submit">Submit</button><br><br><br><br>
+                        
+        </div>
+                                    
+      </div>
+    </div>   
+      </form>
+    </div>    
+</div>
+
+                
+    {% endblock content %}
+
+        
